@@ -1,0 +1,9 @@
+celery==5.1.2
+Django==3.2.6
+redis==3.5.3
+amqp
+rabbitmq
+
+pytest
+pytest-django
+psycopg2

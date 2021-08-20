@@ -3,3 +3,4 @@ Django==3.2.6
 psycopg2
 amqp
 rabbitmq
+redis==3.5.3

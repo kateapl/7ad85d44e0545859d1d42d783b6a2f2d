@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/dashboard
+    ports:
+      - "8000:8000"
+
+  pgdb:
+    image: postgres
+    environment:
+      - POSTGRES_DB=dashboard
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=user
+    ports:
+      - "5432:5432"
+    #superuser: admin password:admin
+    #Email address: admin@smthng.com

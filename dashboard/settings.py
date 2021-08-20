@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,23 +20,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2fr*pb(1#-c8((6^6nfhxekv+g*#wj0d3s#asmwo8wk0^c!#-3'
+SECRET_KEY = 'django-insecure-*^op4h!b_-ynp(6*dywu34xp_^)x8a@lz%btm$htvh8ytw271v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Celery Configuration Options
-CELERY_TIMEZONE = "Europe/Moscow"
-CELERY_TASK_TRACK_STARTED = True
-CELERY_TASK_TIME_LIMIT = 30 * 60
 
-CELERY_BROKER_URL = 'amqp://rabbit' #specifies the connection string to the Broker. amqp indicates RabbitMQ is being used as broker.
-CELERY_RESULT_BACKEND = 'redis://localhost:6379' #sets redis as the result backend. 6379 is the default port.
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TASK_SERIALIZER = 'json'
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'function_modeling',
+    'func_modeling'
 ]
 
 MIDDLEWARE = [
@@ -85,11 +76,12 @@ WSGI_APPLICATION = 'dashboard.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': os.environ.get('DB_HOST'),
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': 'pgdb',
+        'NAME': 'dashboard',
+        'USER': 'user',
+        'PASSWORD': 'user',
+        'PORT': '5432'
     }
 }
 

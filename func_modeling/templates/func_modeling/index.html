@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function modeling</title>
+
+</head>
+<body>
+    <div class="button_panel">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.code }}
+            {{ form.input }}
+            <br>
+            <button type="submit">Launch</button>
+        </form>
+    </div>
+    <table>
+        <tr><th>Функция</th><th>График</th><th>Интервал, t</th><th>Шаг</th><th>Дата обработки</th></tr> <!--ряд с ячейками заголовков-->
+        <!--{% for line in output %}{% endfor %}
+            <tr><td>данные</td><td>данные</td></tr> ряд с ячейками тела таблицы
+        {% endfor %}-->
+    </table>
+
+</body>
+</html>

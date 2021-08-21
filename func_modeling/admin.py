@@ -1,3 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
+from django.contrib import admin
+
+from .models import Function
+
+class FunctionAdmin(admin.ModelAdmin):
+    fields = ['function', 'interval', 'step']
+    list_display = ('function', 'graph', 'interval', 'step', 'date')
+
+admin.site.register(Function)

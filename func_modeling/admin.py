@@ -6,6 +6,8 @@ from .models import Function
 
 @admin.register(Function)
 class FunctionAdmin(admin.ModelAdmin):
-    fields = ('function', 'interval', 'step')
-    list_display = ('function', 'graph', 'interval', 'step', 'date')
+    readonly_fields = ['image', ]
+    fields = ('function', 'image', 'interval', 'step')
+    list_display = ('function', 'image', 'interval', 'step', 'date')
+
 

@@ -1,14 +1,16 @@
 # Create your tasks here
 
 from celery import shared_task
-
+from .models import Function
+from .modeling import build_plot
 from PIL import Image
 from django.conf import settings
 
 @shared_task(name='graph maker')
-def make_graph(function: str):
-
-    return function
+def make_graph(id):
+    function = Function.objects.get(pk=id)
+    print(build_plot(id, function.function, function.interval, function.step))
+    return build_plot(id, function.function, function.interval, function.step)
 
 
 # def make_thumbnails(file_path, thumbnails=[]):
